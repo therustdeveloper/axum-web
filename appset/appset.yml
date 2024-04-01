@@ -26,7 +26,7 @@ spec:
         helm:
           parameters:
           - name: "image.tag"
-            value: 'preview-{{head_sha}}'
+            value: '{{head_sha}}'
           - name: "namespace"
             value: 'axum-web-{{branch}}-{{number}}'
       project: default
