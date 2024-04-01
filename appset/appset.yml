@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: axum-web-preview-environments
+  namespace: argocd
+spec:
+  generators:
+  - pullRequest:
+      github:
+        owner: therustdeveloper
+        repo: axum-web
+        tokenRef:
+          secretName: repo-3066764709
+          key: password
+        labels:
+        - preview
+      requeueAfterSeconds: 15
+  template:      
+    metadata:
+      name: 'axum-web-{{branch}}-{{number}}'
+    spec:
+      source:
+        repoURL: https://github.com/therustdeveloper/axum-web.git
+        targetRevision: '{{head_sha}}'
+        path: helm
+        helm:
+          parameters:
+          - name: "image.tag"
+            value: '{{head_sha}}'
+          - name: "namespace"
+            value: 'axum-web-{{branch}}-{{number}}'
+      project: default
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true  
+        automated:
+          prune: true
+          selfHeal: true
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'axum-web-{{branch}}-{{number}}'
+      
+      
