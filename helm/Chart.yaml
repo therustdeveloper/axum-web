@@ -2,5 +2,5 @@ apiVersion: v2
 name: axum-web
 description: The helm chart for the axum-web
 type: application
-version: 1.0.0
-appVersion: "1.0.0"
+version: 4.0.0
+appVersion: "4.0.0"
