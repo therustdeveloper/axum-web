@@ -4,7 +4,7 @@ env: staging
 namespace: staging
 image:
   name: hachikoapp/axum-web # image name change automatically
-  tag: '14.0.0' # tag change automatically
+  tag: '15.0.0' # tag change automatically
   pullPolicy: IfNotPresent
 service:
   type: LoadBalancer
