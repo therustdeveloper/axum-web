@@ -22,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: hachikoapp/axum-web:7.0.0
+          tags: hachikoapp/axum-web:8.0.0
