@@ -31,3 +31,9 @@ docker run -d --name axum-web -p 40000:3000 axum-web:v2.0.0
 ```shell
 docker.io/hachikoapp/axum-web:1.0.0
 ```
+
+## Create Kubernetes Secret
+
+```shell
+kubectl create secret generic gh-therustdeveloper --from-literal=password=<github_token> -n argocd
+```

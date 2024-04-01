@@ -10,7 +10,7 @@ spec:
         owner: therustdeveloper
         repo: axum-web
         tokenRef:
-          secretName: repo-3066764709
+          secretName: gh-therustdeveloper
           key: password
         labels:
         - preview
