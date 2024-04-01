@@ -13,7 +13,7 @@ spec:
         app: {{ .Values.name }}
     spec:
       containers:
-        - name: {{ .Values.image.name }}
+        - name: {{ .Values.container.name }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           image: "hachikoapp/axum-web:{{ default .Chart.Version .Values.image.tag }}"
           ports:
