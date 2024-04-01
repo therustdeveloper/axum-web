@@ -12,5 +12,5 @@ async fn main() {
 }
 
 async fn root() -> String {
-    "Webserver v13.0.0".to_owned()
+    "Webserver v14.0.0".to_owned()
 }
