@@ -23,5 +23,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: hachikoapp/axum-web:preview-${{ github.event.pull_request.head.sha }}
+          tags: hachikoapp/axum-web:${{ github.event.pull_request.head.sha }}
           #tags: hachikoapp/axum-web:preview-${{steps.short_revision.outputs.short_revision}}
