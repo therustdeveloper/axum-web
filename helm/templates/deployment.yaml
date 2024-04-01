@@ -18,5 +18,3 @@ spec:
           image: "hachikoapp/axum-web:{{ default .Chart.Version .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.service.port }}
-      imagePullSecrets:
-        - name: regcred
