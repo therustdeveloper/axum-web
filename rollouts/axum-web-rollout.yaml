@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: axum-web-rollout-bluegreen
+  namespace: staging
 spec:
   replicas: 7
   revisionHistoryLimit: 2
@@ -15,7 +16,7 @@ spec:
       spec:
         containers:
           - name: axum-web
-            image: hachikoapp/axum-web:25.0.0
+            image: hachikoapp/axum-web:26.0.0
             imagePullPolicy: Always
             ports:
               - containerPort: 3000
