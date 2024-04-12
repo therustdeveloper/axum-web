@@ -8,6 +8,6 @@ spec:
     app: {{ .Values.name }}
   ports:
     - protocol: TCP
-      port: {{ .Values.service.port-preview }}
+      port: {{ .Values.service.portPreview }}
       targetPort: {{ .Values.service.targetPort }}
 
