@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: axum-web-rollout-bluegreen
+spec:
+  replicas: 7
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: axum-web
+    template:
+      metadata:
+        labels:
+          app: axum-web
+      spec:
+        containers:
+          - name: axum-web
+            image: hachikoapp/axum-web:25.0.0
+            imagePullPolicy: Always
+            ports:
+              - containerPort: 3000
+    strategy:
+      blueGreen:
+        activeService: axum-web
+        previewService: axum-web-preview
+        autoPromotionEnabled: false
+
