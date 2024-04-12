@@ -4,11 +4,12 @@ env: staging
 namespace: staging
 image:
   name: hachikoapp/axum-web # image name change automatically
-  tag: '26.0.0' # tag change automatically
+  tag: '27.0.0' # tag change automatically
   pullPolicy: IfNotPresent
 service:
   type: LoadBalancer
   port: 3000
+  port-preview: 3001
   targetPort: 3000
   portName: http
 container:

@@ -16,7 +16,7 @@ spec:
       spec:
         containers:
           - name: axum-web
-            image: hachikoapp/axum-web:26.0.0
+            image: hachikoapp/axum-web:27.0.0
             imagePullPolicy: Always
             ports:
               - containerPort: 3000
