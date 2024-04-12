@@ -17,18 +17,18 @@ spec:
       requeueAfterSeconds: 15
   template:      
     metadata:
-      name: '{{head_short_sha}}-{{number}}-preview' # 'axum-web-{{branch_slug}}-{{number}}'
+      name: 'axum-web-{{branch_slug}}-{{number}}' # '{{head_short_sha}}-{{number}}-preview'
     spec:
       source:
         repoURL: https://github.com/therustdeveloper/axum-web.git
-        targetRevision: '{{head_short_sha}}'
+        targetRevision: '{{head_sha}}'
         path: helm
         helm:
           parameters:
           - name: "image.tag"
-            value: 'preview-{{head_short_sha}}'
+            value: '{{head_sha}}'
           - name: "namespace"
-            value: '{{head_short_sha}}-{{number}}-preview' # 'axum-web-{{branch_slug}}-{{number}}'
+            value: 'axum-web-{{branch_slug}}-{{number}}' # '{{head_short_sha}}-{{number}}-preview'
       project: default
       syncPolicy:
         syncOptions:
@@ -38,6 +38,6 @@ spec:
           selfHeal: true
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{head_short_sha}}-{{number}}-preview' # 'axum-web-{{branch_slug}}-{{number}}'
+        namespace: 'axum-web-{{branch_slug}}-{{number}}' # '{{head_short_sha}}-{{number}}-preview' #
       
       
